@@ -31,7 +31,6 @@ function App() {
               <Services />
               <Portfolio />
               <Testimonials />
-              <Pricing />
               <Contact />
             </motion.div>
           } />

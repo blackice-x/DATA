@@ -177,30 +177,17 @@ const Contact = () => {
               {[
                 {
                   icon: Mail,
-                  title: 'Email Us',
-                  info: 'hello@rivoxstudio.com',
-                  action: 'Send Email',
+                  title: 'WhatsApp',
+                  info: '+91 96339 22276',
+                  action: 'Chat Now',
                   color: 'from-blue-500 to-cyan-500'
                 },
-                {
-                  icon: Phone,
-                  title: 'Call Us',
-                  info: '+1 (555) 123-4567',
-                  action: 'Call Now',
-                  color: 'from-green-500 to-teal-500'
-                },
-                {
-                  icon: MapPin,
-                  title: 'Visit Us',
-                  info: '123 Creative Street, Studio City, CA 90210',
-                  action: 'Get Directions',
-                  color: 'from-purple-500 to-pink-500'
-                }
               ].map((contact, idx) => (
                 <motion.div
                   key={idx}
-                  className="bg-slate-800/50 backdrop-blur-sm border border-blue-500/20 rounded-2xl p-6 hover:border-blue-400/40 transition-all duration-300 group"
+                  className="bg-slate-800/50 backdrop-blur-sm border border-blue-500/20 rounded-2xl p-6 hover:border-blue-400/40 transition-all duration-300 group cursor-pointer"
                   whileHover={{ scale: 1.02 }}
+                  onClick={() => window.open(`https://wa.me/919633922276`, '_blank')}
                 >
                   <div className="flex items-center space-x-4">
                     <div className={`w-12 h-12 bg-gradient-to-r ${contact.color} rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
@@ -218,6 +205,7 @@ const Contact = () => {
             {/* Quick Contact Buttons */}
             <div className="space-y-4">
               <motion.button
+                onClick={() => window.open('https://wa.me/919633922276', '_blank')}
                 className="w-full bg-green-600 hover:bg-green-700 py-4 rounded-xl text-white font-semibold text-lg flex items-center justify-center space-x-2 transition-all duration-300"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
@@ -227,6 +215,7 @@ const Contact = () => {
               </motion.button>
 
               <motion.button
+                onClick={() => window.open('https://www.instagram.com/james.club0?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==', '_blank')}
                 className="w-full bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 py-4 rounded-xl text-white font-semibold text-lg flex items-center justify-center space-x-2 transition-all duration-300"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
@@ -234,18 +223,6 @@ const Contact = () => {
                 <Instagram className="w-5 h-5" />
                 <span>Instagram DM</span>
               </motion.button>
-            </div>
-
-            {/* Map Placeholder */}
-            <div className="bg-slate-800/50 backdrop-blur-sm border border-blue-500/20 rounded-2xl p-6">
-              <h4 className="text-lg font-semibold text-white mb-4">Our Location</h4>
-              <div className="aspect-video bg-slate-700/50 rounded-xl flex items-center justify-center">
-                <div className="text-center">
-                  <MapPin className="w-12 h-12 text-blue-400 mx-auto mb-2" />
-                  <p className="text-gray-300">Interactive Map</p>
-                  <p className="text-gray-500 text-sm">Studio City, California</p>
-                </div>
-              </div>
             </div>
           </motion.div>
         </div>

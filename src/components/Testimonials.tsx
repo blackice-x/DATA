@@ -14,7 +14,8 @@ const Testimonials = () => {
       image: 'https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=400',
       rating: 5,
       text: 'Rivox Studio transformed my content completely! Their editing style is exactly what I needed for my brand. The attention to detail is incredible.',
-      project: 'Instagram Reels Package'
+      project: 'Instagram Reels Package',
+      videoUrl: 'https://www.instagram.com/reel/DNuY8eZ5Abq/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=='
     },
     {
       id: 2,
@@ -24,7 +25,8 @@ const Testimonials = () => {
       image: 'https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&w=400',
       rating: 5,
       text: 'The music video they created exceeded all expectations. Professional, creative, and delivered on time. Highly recommend!',
-      project: 'Music Video Production'
+      project: 'Music Video Production',
+      videoUrl: 'https://www.instagram.com/reel/DOAhzJ5krY8/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=='
     },
     {
       id: 3,
@@ -34,7 +36,8 @@ const Testimonials = () => {
       image: 'https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=400',
       rating: 5,
       text: 'Outstanding work on our corporate video. The team understood our vision perfectly and brought it to life with stunning visuals.',
-      project: 'Corporate Presentation'
+      project: 'Corporate Presentation',
+      videoUrl: 'https://www.instagram.com/reel/DM4TmH0yhtL/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=='
     },
     {
       id: 4,
@@ -44,7 +47,8 @@ const Testimonials = () => {
       image: 'https://images.pexels.com/photos/1043471/pexels-photo-1043471.jpeg?auto=compress&cs=tinysrgb&w=400',
       rating: 5,
       text: 'They captured the essence of our event perfectly. The highlight reel was emotional and beautifully crafted.',
-      project: 'Wedding Highlight Reel'
+      project: 'Wedding Highlight Reel',
+      videoUrl: 'https://www.instagram.com/reel/DJ8do1Ky8yG/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=='
     }
   ];
 
@@ -63,26 +67,13 @@ const Testimonials = () => {
     setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
   };
 
+  const handleVideoClick = (videoUrl: string) => {
+    window.open(videoUrl, '_blank');
+  };
+
   return (
     <section className="py-20 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-        >
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            <span className="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">
-              Client Testimonials
-            </span>
-          </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            See what our clients say about working with Rivox Studio
-          </p>
-        </motion.div>
-
         {/* 3D Rotating Carousel */}
         <div className="relative max-w-4xl mx-auto">
           <div className="relative h-96 perspective-1000">
@@ -122,8 +113,19 @@ const Testimonials = () => {
                     "{testimonials[currentIndex].text}"
                   </p>
                   
-                  <div className="text-sm text-blue-400 font-medium">
-                    Project: {testimonials[currentIndex].project}
+                  <div className="flex items-center justify-between">
+                    <div className="text-sm text-blue-400 font-medium">
+                      Project: {testimonials[currentIndex].project}
+                    </div>
+                    <motion.button
+                      onClick={() => handleVideoClick(testimonials[currentIndex].videoUrl)}
+                      className="bg-gradient-to-r from-blue-500 to-blue-600 px-4 py-2 rounded-full text-white font-medium hover:from-blue-600 hover:to-blue-700 transition-all duration-300 flex items-center space-x-2"
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      <Play className="w-4 h-4" />
+                      <span>Watch Video</span>
+                    </motion.button>
                   </div>
                 </div>
               </motion.div>
@@ -164,44 +166,6 @@ const Testimonials = () => {
             </motion.button>
           </div>
         </div>
-
-        {/* Video Testimonials Section */}
-        <motion.div
-          className="mt-20"
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-        >
-          <h3 className="text-3xl font-bold text-center mb-12 text-blue-400">
-            Video Testimonials
-          </h3>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {[1, 2].map((item) => (
-              <motion.div
-                key={item}
-                className="group relative aspect-video bg-slate-800/50 backdrop-blur-sm border border-blue-500/20 rounded-2xl overflow-hidden hover:border-blue-400/40 transition-all duration-300"
-                whileHover={{ scale: 1.02 }}
-              >
-                <img
-                  src={`https://images.pexels.com/photos/317355${item}/pexels-photo-317355${item}.jpeg?auto=compress&cs=tinysrgb&w=800`}
-                  alt={`Video testimonial ${item}`}
-                  className="w-full h-full object-cover"
-                />
-                
-                <div className="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <motion.div
-                    className="w-16 h-16 bg-blue-500/90 backdrop-blur-sm rounded-full flex items-center justify-center"
-                    whileHover={{ scale: 1.1 }}
-                  >
-                    <Play className="w-8 h-8 text-white ml-1" />
-                  </motion.div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
       </div>
     </section>
   );

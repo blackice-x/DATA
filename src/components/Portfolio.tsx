@@ -156,35 +156,6 @@ const Portfolio = () => {
             </motion.div>
           ))}
         </motion.div>
-
-        {/* Upload Section for Admin */}
-        <motion.div
-          className="mt-16 text-center"
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-        >
-          <div className="bg-slate-800/30 backdrop-blur-sm border border-blue-500/20 rounded-2xl p-8 max-w-2xl mx-auto">
-            <h3 className="text-2xl font-bold mb-4 text-blue-400">Admin Upload</h3>
-            <p className="text-gray-300 mb-6">Paste Instagram video link to add to portfolio</p>
-            
-            <div className="flex gap-4">
-              <input
-                type="url"
-                placeholder="https://instagram.com/reel/..."
-                className="flex-1 bg-slate-700/50 border border-blue-500/30 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:border-blue-400 transition-colors duration-300"
-              />
-              <motion.button
-                className="bg-gradient-to-r from-blue-500 to-blue-600 px-6 py-3 rounded-lg text-white font-medium hover:from-blue-600 hover:to-blue-700 transition-all duration-300"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                Add Video
-              </motion.button>
-            </div>
-          </div>
-        </motion.div>
       </div>
     </section>
   );
