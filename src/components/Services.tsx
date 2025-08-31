@@ -147,7 +147,10 @@ const Services = () => {
             >
               <div className="flex justify-between items-start mb-6">
                 <div className={`w-16 h-16 bg-gradient-to-r ${services[selectedService].color} rounded-2xl flex items-center justify-center`}>
-                  <services[selectedService].icon className="w-8 h-8 text-white" />
+                  {(() => {
+                    const IconComponent = services[selectedService].icon;
+                    return <IconComponent className="w-8 h-8 text-white" />;
+                  })()}
                 </div>
                 <button
                   onClick={() => setSelectedService(null)}
